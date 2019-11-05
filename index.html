@@ -143,6 +143,78 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-yilia主题配置缺失模块踩坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/05/yilia%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E7%BC%BA%E5%A4%B1%E6%A8%A1%E5%9D%97%E8%B8%A9%E5%9D%91/">yilia主题配置缺失模块踩坑</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/05/yilia%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E7%BC%BA%E5%A4%B1%E6%A8%A1%E5%9D%97%E8%B8%A9%E5%9D%91/" class="archive-article-date">
+  	<time datetime="2019-11-05T08:45:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#yilia主题在配置缺失模块时踩坑</p>
+<hr>
+<h2 id="blog根目录下安装"><a href="#blog根目录下安装" class="headerlink" title="blog根目录下安装"></a>blog根目录下安装</h2><pre><code>在blog跟目录下运行： npm i  hexo-generator-json-content --save
+
+运行之后在blog目录下多一个 node_modules 文件夹
+
+然后再确定 themes\yilia 目录下 node_modules\hexo-generator-json-content 这个文件夹是否存在   
+
+如果不存在：在yilia目录下运行： npm i  hexo-generator-json-content --save</code></pre><p>##代码复制</p>
+<pre><code>将代码复制到blog根目录下 _config.yml 配置文件时需要注意空格 注意对齐方式，否则可能会报错</code></pre><p>jsonContent:<br>  meta: false<br>  pages: false<br>  posts:<br>    title: true<br>    date: true<br>    path: true<br>    text: false<br>    raw: false<br>    content: false<br>    slug: false<br>    updated: false<br>    comments: false<br>    link: false<br>    permalink: false<br>    excerpt: false<br>    categories: false<br>    tags: true</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/05/yilia%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E7%BC%BA%E5%A4%B1%E6%A8%A1%E5%9D%97%E8%B8%A9%E5%9D%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
