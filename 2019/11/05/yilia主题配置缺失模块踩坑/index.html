@@ -8,14 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>yilia主题配置缺失模块踩坑 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#yilia主题在配置缺失模块时踩坑  blog根目录下安装在blog跟目录下运行： npm i  hexo-generator-json-content --save  运行之后在blog目录下多一个 node_modules 文件夹  然后再确定 themes\yilia 目录下 node_modules\hexo-generator-json-content 这个文件夹是否存在     如果">
+  <meta name="description" content="#yilia主题在配置缺失模块时踩坑">
+<meta name="keywords" content="踩坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yilia主题配置缺失模块踩坑">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;05&#x2F;yilia%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E7%BC%BA%E5%A4%B1%E6%A8%A1%E5%9D%97%E8%B8%A9%E5%9D%91&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#yilia主题在配置缺失模块时踩坑  blog根目录下安装在blog跟目录下运行： npm i  hexo-generator-json-content --save  运行之后在blog目录下多一个 node_modules 文件夹  然后再确定 themes\yilia 目录下 node_modules\hexo-generator-json-content 这个文件夹是否存在     如果">
+<meta property="og:description" content="#yilia主题在配置缺失模块时踩坑">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-05T08:53:06.621Z">
+<meta property="og:updated_time" content="2019-11-05T09:37:23.625Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -171,6 +172,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>#yilia主题在配置缺失模块时踩坑</p>
+<a id="more"></a>
+
 <hr>
 <h2 id="blog根目录下安装"><a href="#blog根目录下安装" class="headerlink" title="blog根目录下安装"></a>blog根目录下安装</h2><pre><code>在blog跟目录下运行： npm i  hexo-generator-json-content --save
 
@@ -180,6 +183,9 @@
 
 如果不存在：在yilia目录下运行： npm i  hexo-generator-json-content --save</code></pre><p>##代码复制</p>
 <pre><code>将代码复制到blog根目录下 _config.yml 配置文件时需要注意空格 注意对齐方式，否则可能会报错</code></pre><p>jsonContent:<br>  meta: false<br>  pages: false<br>  posts:<br>    title: true<br>    date: true<br>    path: true<br>    text: false<br>    raw: false<br>    content: false<br>    slug: false<br>    updated: false<br>    comments: false<br>    link: false<br>    permalink: false<br>    excerpt: false<br>    categories: false<br>    tags: true</p>
+<hr>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1461836&auto=0&height=66"></iframe>
+
 
       
 
@@ -209,6 +215,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">踩坑</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -404,6 +421,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">踩坑</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
