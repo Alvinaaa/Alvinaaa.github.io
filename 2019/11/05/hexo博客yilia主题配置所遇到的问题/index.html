@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="摘要：">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-06T05:37:01.699Z">
+<meta property="og:updated_time" content="2019-11-06T06:39:29.454Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -198,9 +198,14 @@ Git Bash Here进入到yilia目录下运输入： </code></pre><figure class="hig
 随便新建或者打开一篇文章在文章的最上面的tags中添加：</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tags:</span><br><span class="line">     随笔</span><br><span class="line">     其他标签</span><br></pre></td></tr></table></figure>
 <p>注：在添加标签的时候必须换行，不能与tags同行</p>
 <h2 id="新建标签、分类"><a href="#新建标签、分类" class="headerlink" title="新建标签、分类"></a>新建标签、分类</h2><pre><code>进入themes\yilia目录，打开_config.yml 配置文件</code></pre><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">主页: /</span><br><span class="line">随笔: /tags/随笔/</span><br><span class="line">归档:  /archives/index.html</span><br></pre></td></tr></table></figure>
+<h2 id="hexo博客添加访问量统计-–-不蒜子"><a href="#hexo博客添加访问量统计-–-不蒜子" class="headerlink" title="hexo博客添加访问量统计 – 不蒜子"></a>hexo博客添加访问量统计 – 不蒜子</h2><pre><code>1.配置不蒜子开关
+    在 themes/yilia/_config.yml 中添加属性</code></pre><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 是否开启访问量统计功能(不蒜子)</span></span><br><span class="line">busuanzi:</span><br><span class="line"> enable: true</span><br></pre></td></tr></table></figure>
+<pre><code>2.引入不蒜子并添加站点访问量
+    在 themes/yilia/layout/_partial/footer.ejs 末尾添加如下代码</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;footer id=&quot;footer&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;outer&quot;&gt;</span><br><span class="line">    &lt;div id=&quot;footer-info&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;footer-left&quot;&gt;</span><br><span class="line">            &amp;copy; &lt;%= date(new Date(), &apos;YYYY&apos;) %&gt; &lt;%= config.author || config.title %&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;footer-right&quot;&gt;</span><br><span class="line">            &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot;&gt;Hexo&lt;/a&gt;  Theme &lt;a href=&quot;https://github.com/litten/hexo-theme-yilia&quot; target=&quot;_blank&quot;&gt;Yilia&lt;/a&gt; by Litten</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">        &lt;!-- 添加代码 --&gt;</span><br><span class="line">&lt;% if (theme.busuanzi &amp;&amp; theme.busuanzi.enable)&#123; %&gt;</span><br><span class="line">        &lt;!-- 不蒜子统计 --&gt;</span><br><span class="line">        &lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">                总访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span><br><span class="line">        &lt;span id=&quot;busuanzi_container_site_uv&quot; style=&apos;display:none&apos;&gt;</span><br><span class="line">                访客数&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;人</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">        &lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;/footer&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>3.添加文章访问量
+    在themes/yilia/layout/_partial/post/date.ejs开头添加如下代码</code></pre><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (<span class="attr">theme.busuanzi</span> &amp;&amp; <span class="attr">theme.busuanzi.enable</span> &amp;&amp; !<span class="attr">index</span>)&#123; %&gt;</span></span></span><br><span class="line"><span class="code">        &lt;!-- 不蒜子统计 --&gt;</span></span><br><span class="line"><span class="code">        &lt;span id="busuanzi_container_page_pv" style='display:none' class="&lt;%= class_name %&gt;"&gt;</span></span><br><span class="line"><span class="code">              &lt;i class="icon-smile icon"&gt;&lt;/i&gt; 阅读数：&lt;span id="busuanzi_value_page_pv"&gt;&lt;/span&gt;次</span></span><br><span class="line"><span class="code">        &lt;/span&gt;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- 上面为添加的代码，下面的是之前原有的 --&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%- url_for(post.path) %&gt;</span></span></span>" class="<span class="xml"><span class="tag"><span class="string">&lt;%= class_name %&gt;</span></span></span>"&gt;</span><br><span class="line"><span class="code">    &lt;time datetime="&lt;%= date_xml(post.date) %&gt;" itemprop="datePublished"&gt;&lt;i class="icon-calendar icon"&gt;&lt;/i&gt;&lt;%= date(post.date, date_format) %&gt;&lt;/time&gt;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <hr>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1461836&auto=0&height=66"></iframe>
-
 
       
 
@@ -303,25 +308,6 @@ Git Bash Here进入到yilia目录下运输入： </code></pre><figure class="hig
 </article>
 
   
-<nav id="article-nav">
-  
-    <a href="/2019/11/06/%E5%85%B3%E4%BA%8Eyilia%E5%B7%A6%E4%BE%A7%E9%9A%8F%E7%AC%94404/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          关于yilia左侧随笔404
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/11/05/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -343,7 +329,7 @@ Git Bash Here进入到yilia目录下运输入： </code></pre><figure class="hig
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo博客yilia主题配置所遇到的问题"><span class="toc-number">1.</span> <span class="toc-text">hexo博客yilia主题配置所遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#yilia主题左侧缺失模块"><span class="toc-number">1.1.</span> <span class="toc-text">yilia主题左侧缺失模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-blog根目录下安装"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.blog根目录下安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-代码复制"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.代码复制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#左侧随笔404错误"><span class="toc-number">1.2.</span> <span class="toc-text">左侧随笔404错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建标签、分类"><span class="toc-number">1.3.</span> <span class="toc-text">新建标签、分类</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo博客yilia主题配置所遇到的问题"><span class="toc-number">1.</span> <span class="toc-text">hexo博客yilia主题配置所遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#yilia主题左侧缺失模块"><span class="toc-number">1.1.</span> <span class="toc-text">yilia主题左侧缺失模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-blog根目录下安装"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.blog根目录下安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-代码复制"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.代码复制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#左侧随笔404错误"><span class="toc-number">1.2.</span> <span class="toc-text">左侧随笔404错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建标签、分类"><span class="toc-number">1.3.</span> <span class="toc-text">新建标签、分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo博客添加访问量统计-–-不蒜子"><span class="toc-number">1.4.</span> <span class="toc-text">hexo博客添加访问量统计 – 不蒜子</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -460,10 +446,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">踩坑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
