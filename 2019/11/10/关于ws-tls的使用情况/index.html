@@ -7,17 +7,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>关于ws+tls的使用情况 | Hexo</title>
+  <title>关于ws+tls的使用情况以及BBR | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="ws+tls在使用过程中所遇到的问题">
 <meta name="keywords" content="ws+tls,vps">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于ws+tls的使用情况">
+<meta property="og:title" content="关于ws+tls的使用情况以及BBR">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;10&#x2F;%E5%85%B3%E4%BA%8Ews-tls%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="ws+tls在使用过程中所遇到的问题">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-10T10:32:11.908Z">
+<meta property="og:updated_time" content="2019-11-18T12:59:51.122Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -159,7 +159,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      关于ws+tls的使用情况
+      关于ws+tls的使用情况以及BBR
     </h1>
   
 
@@ -202,7 +202,8 @@ ws+tls在使用过程中所遇到的问题
 传输协议（network）： ws
 伪装类型（type）： none
 路径（不要落下/）： /1a16da28/
-底层传输安全： tls</code></pre><h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><pre><code>域名解析一定要对应自己当前的ip地址，否则无法生效，个人猜测使用cf做解析应该是不可以的</code></pre>
+底层传输安全： tls</code></pre><h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><pre><code>域名解析一定要对应自己当前的ip地址，否则无法生效，个人猜测使用cf做解析应该是不可以的</code></pre><h2 id="BBR"><a href="#BBR" class="headerlink" title="BBR"></a>BBR</h2><pre><code>wget &quot;https://github.com/chiakge/Linux-NetSpeed/raw/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code></pre><p>在重启之后<br>    ./tcp.sh</p>
+
       
 
       
@@ -348,7 +349,7 @@ ws+tls在使用过程中所遇到的问题
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#注"><span class="toc-number">1.</span> <span class="toc-text">注</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#注"><span class="toc-number">1.</span> <span class="toc-text">注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BBR"><span class="toc-number">2.</span> <span class="toc-text">BBR</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -464,10 +465,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">踩坑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">Android</a>
               </li>
              
@@ -485,6 +482,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">vps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">踩坑</a>
               </li>
              
               <li class="article-tag-list-item">
