@@ -7,17 +7,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>密钥 | Hexo</title>
+  <title>AsyncTask | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第二因素验证密钥：                    785c 910b 09ba ef7e">
-<meta name="keywords" content="vps,密钥">
+  <meta name="description" content="构建AsyncTask子类的参数 构建AsyncTask子类的回调方法 AsyncTask注意事项 返回界面时，异步任务还再后台执行的情况，解决方法">
+<meta name="keywords" content="Android,异步线程,AsyncTask">
 <meta property="og:type" content="article">
-<meta property="og:title" content="密钥">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;16&#x2F;%E5%AF%86%E9%92%A5&#x2F;index.html">
+<meta property="og:title" content="AsyncTask">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;19&#x2F;AsyncTask&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第二因素验证密钥：                    785c 910b 09ba ef7e">
+<meta property="og:description" content="构建AsyncTask子类的参数 构建AsyncTask子类的回调方法 AsyncTask注意事项 返回界面时，异步任务还再后台执行的情况，解决方法">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-18T13:34:15.134Z">
+<meta property="og:updated_time" content="2019-11-19T12:01:33.028Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -152,14 +152,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-密钥" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-AsyncTask" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      密钥
+      AsyncTask
     </h1>
   
 
@@ -170,8 +170,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/11/16/%E5%AF%86%E9%92%A5/" class="archive-article-date">
-  	<time datetime="2019-11-16T01:24:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-16</time>
+<a href="/2019/11/19/AsyncTask/" class="archive-article-date">
+  	<time datetime="2019-11-19T08:38:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-19</time>
 </a>
 
                 
@@ -185,7 +185,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第二因素验证密钥：<br>                    785c 910b 09ba ef7e</p>
+        <ol>
+<li>构建AsyncTask子类的参数</li>
+<li>构建AsyncTask子类的回调方法</li>
+<li>AsyncTask注意事项</li>
+<li>返回界面时，异步任务还再后台执行的情况，解决方法<a id="more"></a>
+<h2 id="异步任务-AsyncTask"><a href="#异步任务-AsyncTask" class="headerlink" title="异步任务-AsyncTask"></a>异步任务-AsyncTask</h2></li>
+<li>构建AsyncTask子类的参数<br>AsyncTask&lt;Params,Progress,Result&gt;是一个抽象类，通常被用于继承，继承AsyncTask需要指定如下三个泛型参数：<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Params：启动任务时输入参数的类型。</span><br><span class="line">Progress：后台任务执行中返回进度值的类型。</span><br><span class="line">Result：后台执行任务完成后返回结果的类型。</span><br></pre></td></tr></table></figure></li>
+<li>构建AsyncTask子类的回调方法<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">doInBackground：必须重写，异步执行后台线程将要完成的任务</span><br><span class="line">onPreExecute：执行后台耗时操作前被调用，通常用户完成一些初始化操作</span><br><span class="line">onPostExecute：当doInBackground()完成后，系统会自动调用onPostExecute()方法，并将doInBackground()方法返回的值传送给该方法</span><br><span class="line">onPregressUpdate：在doInBackground()方法中调用publishProgress()方法更新任务的执行进度后，会触发该方法。</span><br></pre></td></tr></table></figure>
+调用顺序为：onPreExecute -&gt; doInBackground -&gt; onPostExecute<br>在dInBackground方法中调用publishProgress()方法时的顺序为：<br>onPreExecute -&gt; doInBackground -&gt; onPregressUpdate -&gt; onPostExecute</li>
+<li>AsyncTask注意事项<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">必须在UI线程中创建AsyncTask的实例。</span><br><span class="line">必须在UI线程中调用AsyncTask的execute()方法。</span><br><span class="line">重写的四个方法是系统自动调用的，不应手动调用。</span><br><span class="line">每个AsyncTask只能被执行一次，多次调用将会引发异常。</span><br></pre></td></tr></table></figure>
+<h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2>当异步任务没完成时，点击返回，当再次点击执行异步任务时，如果之前的异步任务没执行完，会等待之前的异步任务执行完成后再执行这次异步任务。<br>解决方法为:<br>在onPause()方法里面判断一下,将cacel设置为true<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onPause();</span><br><span class="line">    <span class="keyword">if</span>(mTask != <span class="keyword">null</span> &amp;&amp; mTask.getStatus() == AsyncTask.Status.RUNNING)&#123;</span><br><span class="line">        mTask.cancel(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+同时在onProgressUpdate()方法里判断isCancelled是否为true<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span><span class="params">(Integer... values)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onProgressUpdate(values);</span><br><span class="line">    <span class="keyword">int</span> i = values[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span>(isCancelled())&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    mProgress.setProgress(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+onInBackground如下<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//只有这一个方法运行在子线程中，其他的方法都可以进行UI操作</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> Bitmap <span class="title">doInBackground</span><span class="params">(String... strings)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            String url = strings[<span class="number">0</span>];</span><br><span class="line">            Bitmap bitmap = <span class="keyword">null</span>;</span><br><span class="line">            URLConnection connection;</span><br><span class="line">            InputStream inputStream;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                connection = <span class="keyword">new</span> URL(url).openConnection();</span><br><span class="line">                inputStream = connection.getInputStream();</span><br><span class="line">                BufferedInputStream bufferedInputStream = <span class="keyword">new</span> BufferedInputStream(inputStream);</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(isCancelled())&#123;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    publishProgress(i);</span><br><span class="line">                    Thread.sleep(<span class="number">300</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                bitmap = BitmapFactory.decodeStream(bufferedInputStream);</span><br><span class="line">                inputStream.close();</span><br><span class="line">                bufferedInputStream.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> bitmap;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+cancel方法只是想对应的AsyncTask标记为cancel状态，并不是真正的取消线程的执行，需要利用isCancelled()方法判断，如果为true则立即跳出执行语句,在java中没有方法能直接强行中断异步操作(带证实)。</li>
+</ol>
 
       
 
@@ -220,11 +234,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">vps</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">密钥</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">异步线程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">AsyncTask</a>
         		</li>
       		
 		</ul>
@@ -280,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/16/%E5%AF%86%E9%92%A5/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/19/AsyncTask/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -294,18 +312,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/17/Android%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Android单例模式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/10/%E5%85%B3%E4%BA%8E%E5%B8%A6%E8%BF%87%E6%BB%A4%E5%8A%9F%E8%83%BD%E7%9A%84Hexo%E9%A6%96%E9%A1%B5%E7%94%9F%E6%88%90%E5%99%A8%E6%8F%92%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于带过滤功能的Hexo首页生成器插件</div>
+    <a href="/2019/11/17/Android%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android单例模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -332,7 +341,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#异步任务-AsyncTask"><span class="toc-number">1.</span> <span class="toc-text">异步任务-AsyncTask</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps"><span class="toc-number">2.</span> <span class="toc-text">ps</span></a></li></ol>
                     </div>
                 </span>
             </div>
