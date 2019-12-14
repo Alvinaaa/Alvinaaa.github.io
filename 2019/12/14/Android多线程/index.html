@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,15 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>hexo yilia主题添加文章字数统计 | Hexo</title>
+  <title>Android多线程 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="hexo yilia主题添加文章字数统计">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;06&#x2F;hexo-yilia%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1&#x2F;index.html">
+  <meta name="description" content="何为线程、多线程 线程有哪些 为什么要使用多线程(ANR Application Not Responding) 什么时候使用多线程 Android中的多线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android多线程">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;Android%E5%A4%9A%E7%BA%BF%E7%A8%8B&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="何为线程、多线程 线程有哪些 为什么要使用多线程(ANR Application Not Responding) 什么时候使用多线程 Android中的多线程">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-06T04:26:19.248Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;Tn6N2je.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;mKSSxlx.png">
+<meta property="og:updated_time" content="2019-12-14T13:28:55.220Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;Tn6N2je.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -37,7 +43,7 @@
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
-    <div class="left-col" q-class="show:isShow">
+    <div class="left-col" q-class="show:isShow" style="background: url(/assets/img/090448.png)no-repeat 100%;background-size:cover;">
       
 <div class="overlay" style="background: #000000"></div>
 <div class="intrude-less">
@@ -148,14 +154,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo-yilia主题添加文章字数统计" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Android多线程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo yilia主题添加文章字数统计
+      Android多线程
     </h1>
   
 
@@ -166,8 +172,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/11/06/hexo-yilia%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1/" class="archive-article-date">
-  	<time datetime="2019-11-06T04:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-06</time>
+<a href="/2019/12/14/Android%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2019-12-14T11:46:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
 </a>
 
                 
@@ -181,7 +187,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <ol>
+<li>何为线程、多线程</li>
+<li>线程有哪些</li>
+<li>为什么要使用多线程(ANR Application Not Responding)</li>
+<li>什么时候使用多线程</li>
+<li>Android中的多线程<a id="more"></a>
+<h2 id="如何使用多线程"><a href="#如何使用多线程" class="headerlink" title="如何使用多线程"></a>如何使用多线程</h2>Main/UI Thread和work Thread<br>Main/UI Thread和work Thread之间的通信<br>Thread/Runnable<br>线程安全<br> Activity.runOnUiThread(Runnable)<br> View.post(Runnable)<br> View.postDelayed(Runnable)<br>Handler<br>AsyncTask<br> 同步代码块(synchronize)</li>
+</ol>
+<h2 id="Thread和ThreadPoolExecutor之间的区别"><a href="#Thread和ThreadPoolExecutor之间的区别" class="headerlink" title="Thread和ThreadPoolExecutor之间的区别"></a>Thread和ThreadPoolExecutor之间的区别</h2><p><img src="https://i.imgur.com/Tn6N2je.png" alt="">))</p>
+<h2 id="ThreadPoolExecutor"><a href="#ThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor"></a>ThreadPoolExecutor</h2><p><img src="https://i.imgur.com/mKSSxlx.png" alt=""></p>
+
       
 
       
@@ -260,7 +276,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/06/hexo-yilia%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/14/Android%E5%A4%9A%E7%BA%BF%E7%A8%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,8 +291,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2019/11/06/%E5%85%B3%E4%BA%8Eyilia%E5%B7%A6%E4%BE%A7%E9%9A%8F%E7%AC%94404/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于yilia左侧随笔404</div>
+    <a href="/2019/12/05/Socket/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Socket</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -303,7 +319,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用多线程"><span class="toc-number">1.</span> <span class="toc-text">如何使用多线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread和ThreadPoolExecutor之间的区别"><span class="toc-number">2.</span> <span class="toc-text">Thread和ThreadPoolExecutor之间的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ThreadPoolExecutor"><span class="toc-number">3.</span> <span class="toc-text">ThreadPoolExecutor</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -419,11 +435,99 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">Android studio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">小技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">自定义View</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">单例模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">网络通信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">Android基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">Fragment</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">主题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">过滤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">vps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">密钥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">启动模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Intent</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">RecyclerView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">ws+tls</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">异步线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">AsyncTask</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">踩坑</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">studio快捷键</a>
               </li>
             
             <div class="clearfix"></div>
